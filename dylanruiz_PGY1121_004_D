@@ -1,0 +1,123 @@
+dylan_ruiz
+precio_A=0
+precio_B=0
+precio_C=0
+precio_D=0
+c_A=0
+c_B=0
+c_C=0
+c_D=0
+cantidad_departamentos=[]
+totales=[]
+piso_selecionado=[]
+ruts=[]
+departamento=[["A","B","C","D"],
+              ["A","B","C","D"],
+              ["A","B","C","D"],
+              ["A","B","C","D"],
+              ["A","B","C","D"],
+              ["A","B","C","D"],
+              ["A","B","C","D"],
+              ["A","B","C","D"],
+              ["A","B","C","D"],
+              ["A","B","C","D"] ]
+def disponible ():
+  dispo=len(departamento)
+  for i in range(departamento):
+    print(departamento[i])
+def piso_selec (x):
+  eliminar=str(input("\nIngrese el tipo del departamento seleccionado (ejemplo: D) : "))  
+  if eliminar == "A":      
+    departamento[x-1].remove(eliminar)
+    departamento[x-1].insert(0,'X')
+    total_A+=3800
+    c_A+1
+    totales.append(precio_A)
+    cantidad_departamentos.append(c_A)
+  if eliminar == "B":      
+    departamento[x-1].remove(eliminar)
+    departamento[x-1].insert(1,'X')
+    total_B=3000
+    cant_B+=1
+    totales.append(precio_B)
+    cantidad_departamentos.append(c_B)
+  if eliminar == "C":      
+    departamento[x-1].remove(eliminar)
+    departamento[x-1].insert(2,'X')
+    precio_C=2800
+    cant_C+=1
+    totales.append(precio_C)
+    cantidad_departamentos.append(c_C)
+  if eliminar == "D":      
+    departamento[x-1].remove(eliminar)
+    departamento[x-1].insert(3,'X')
+    precio_D=3500
+    c_D+=1
+    totales.append(precio_D)
+    cantidad_departamentos.append(c_D)
+a=1
+while a==1:
+  print("Op 1 :Comprar Departamento")
+  print("Op 2 :Mostrar Departamentos Disponibles")
+  print("Op 3 :Ver Listado de Compradores")
+  print("Op 4 :Mostrar Ganancias Totales")
+  print("Op 5 :Salir")
+  try:
+    op=int(input("Ingrese una opción para continuar : "))
+    if op > 0 or op <6:
+      if op == 1:
+        print(" OP: 1")
+        print("costos de departamentos")
+        print("► Tipo A → 3.800 UF")
+        print("► Tipo B → 3.000 UF")
+        print("► Tipo C → 2.800 UF")
+        print("► Tipo D → 3.500 UF")
+        disponible()
+        piso=int(input("\nIngrese el piso del departamento que desea comprar: "))
+        if piso >0 or piso<11:
+          if piso == 1 :
+            piso_selecionado(1)
+          if piso == 2 :
+            piso_selecionado(2)
+          if piso == 3 :
+            piso_selecionado(3)
+          if piso == 4 :
+            piso_selecionado(4)
+          if piso == 5 :
+            piso_selecionado(5)
+          if piso == 6 :
+            piso_selecionado(6)
+          if piso == 7 :
+            piso_selecionado(7)
+          if piso == 8 :
+            piso_selecionado(8)
+          if piso == 9 :
+            piso_selecionado(9)
+          if piso == 10 :
+            piso_selecionado(10)
+          
+        print("El formato RUT es sin puntos, ni guión")
+        rut=int("\nIngrese el RUT del cliente : ")
+        if len(rut) == 8:
+          ruts.append(rut)
+      if op == 2 :
+        print("OP: 2")
+        print("Los Departamentos Disponibles son :")
+        disponible()
+      if op == 3 :
+        print("OP 2")
+        print("Las Ganancias Totales son :")
+        print(" Tipo departamento    Cantidad    Total")
+        print(f" depa A 3.800 UF       {c_A}           {precio_A}|")
+        print(f" depa B 3.000 UF       {c_B}           {precio_B}|")
+        print(f" depa C 2.800 UF       {c_C}           {precio_C}|")
+        print(f" depa D 3.500 UF       {c_D}           {precio_D}|")
+        print(f" CANTIDAD             {cantidad_departamentos}          {totales}|")
+      if op == 5:
+        print("")
+        print("OP: 5")
+        a=0
+        print("nos vemos luego")
+  except:
+    print("te equivocaste en algo")
+    a=0
